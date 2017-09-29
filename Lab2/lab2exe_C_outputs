@@ -1,0 +1,26 @@
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 1000 ms ... 
+That is equivalent to 0 minute(s) and 1.000000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 60000 ms ... 
+That is equivalent to 1 minute(s) and 0.000000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 61000 ms ... 
+That is equivalent to 1 minute(s) and 1.000000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 61432 ms ... 
+That is equivalent to 1 minute(s) and 1.432000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 43000000 ms ... 
+That is equivalent to 716 minute(s) and 40.000000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Doing conversion for input of 43 ms ... 
+That is equivalent to 0 minute(s) and 0.043000 second(s).
+
+Enter a time interval as an integer number of milliseconds: 
+Unable to convert your input to an int.
