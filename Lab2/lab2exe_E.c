@@ -60,7 +60,7 @@ int read_int(void)
   
   c = fgetc(stdin);
   
-  if ((c != '\n') || (c == EOF))
+  if (!((c == '\n') || (c == EOF)))
   {
     printf("Error, input was not an integer. Exiting...");
     exit(1);
@@ -76,9 +76,9 @@ double read_double(void)
   
   c = fgetc(stdin);
   
-  if ((c != '\n') || (c == EOF))
+  if (!((c == '\n') || (c == EOF)))
   {
-    printf("Error, input was not an integer. Exiting...");
+    printf("Error, input was not a double. Exiting...");
     exit(1);
   }
   return lf;

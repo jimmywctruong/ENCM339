@@ -34,7 +34,7 @@ int main(void)
     try_to_copy(x, y);
     
     try_to_change(x);
-    
+    printf("Main after try_to_change:\n %lf %lf %lf %lf\n", x[0], x[1], x[2], x[3]);
     sum = add_them(&y[1]);
     printf("\n sum of values in y[1], y[2] and y[3] is:  %.1f\n", sum);
     
@@ -53,8 +53,9 @@ void try_to_copy(double dest[], double source[])
 
 void try_to_change(double* dest)
 {
+    printf("\nInside try_to_change before:\n %lf %lf %lf %lf\n", dest[0], dest[1], dest[2], dest[3]);
     dest [3] = 49.0;
-    
+    printf("\nInside try_to_change after:\n %d %lf %lf %lf", dest[0], dest[1], dest[2], dest[3]);
     /* point three*/
     
     printf("\n sizeof(dest) in try_to_change is %d bytes.\n", (int)sizeof(dest));
