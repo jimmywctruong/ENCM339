@@ -22,13 +22,13 @@ int main(void)
       y = read_integer(digits, SIZE, &n); 
   
       if(y == 1)
-	printf("\nYour integer value is: %d", n);
+	     printf("\nYour integer value is: %d", n);
       else if(y == EOF){
-	printf("\nGood Bye.\n");
-	break;
+	     printf("\nGood Bye.\n");
+	     break;
       }
       else
-	printf("\n%s is an invalid integer.", digits);
+	     printf("\n%s is an invalid integer.", digits);
     }
     
   return 0;

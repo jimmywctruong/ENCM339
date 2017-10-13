@@ -119,13 +119,13 @@ int main(void)
     printf("\nExpected to display: my_string has 11 characters.");
     printf("\nmy_string has %d characters.", length);
     
-    printf("\n\nUsing my_strcmp - C library function: ");
+    printf("\n\nUsing strcmp - C library function: ");
     printf("\nExpected to display: \"ABCD\" is less than \"ABCDE\"");
-    if(my_strcmp("ABCD", "ABCDE") > 0)
+    if(strcmp("ABCD", "ABCDE") > 0)
     {
       printf("\n\"ABCD\" is more than \"ABCDE\"");
     }
-    else if (my_strcmp("ABCD", "ABCDE") == 0)
+    else if (strcmp("ABCD", "ABCDE") == 0)
     {
       printf("\n\"ABCD\" is equal to \"ABCDE\"");
     } 
