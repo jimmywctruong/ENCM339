@@ -17,11 +17,15 @@ void select_negatives(const int *source, int n_source,
 /* REQUIRES
  *   n_source >= 0.
  *   Elements source[0], source[1], ..., source[n_source - 1] exist.
- *   Elements negatives_only[0], negatives_only[1], ..., negatives_only[n_source - 1] exist.
+ *   Elements negatives_only[0], negatives_only[1], ..., 
+ negatives_only[n_source - 1] exist.
  * PROMISES
- *   number_of_negatives == number of negative values in source[0], ..., source[n_source - 1].
- *   negatives_only[0], ..., negatives_only[number_of_negatives - 1] contain those negative values, in
- *   the same order as in the source array.                           */
+ *   number_of_negatives == number of negative values in source[0], ..., 
+ source[n_source - 1].
+ *   negatives_only[0], ..., negatives_only[number_of_negatives - 1] contain 
+ those negative values, in
+ *   the same order as in the source array. 
+ */
 
 int main(void)
 {
@@ -46,33 +50,70 @@ int main(void)
     
     printf("\nNow testing substring function....\n");
     printf("Answer must be 1. substring function returned: %d\n" , substring(s, "Who"));
-    printf("Answer must be 0.substring function returned: %d\n" , substring(s, "knowk"));
-    printf("Answer must be 1.substring function returned: %d\n" , substring(s, "knock"));
-    printf("Answer must be 0.substring function returned: %d\n" , substring(s, ""));
-    printf("Answer must be 1.substring function returned: %d\n" , substring(s, "ck! Who's"));
-    printf("Answer must be 0.substring function returned: %d\n" , substring(s, "ck!Who's"));
+    printf("Answer must be 0. substring function returned: %d\n" , substring(s, "knowk"));
+    printf("Answer must be 1. substring function returned: %d\n" , substring(s, "knock"));
+    printf("Answer must be 0. substring function returned: %d\n" , substring(s, ""));
+    printf("Answer must be 1. substring function returned: %d\n" , substring(s, "ck! Who's"));
+    printf("Answer must be 0. substring function returned: %d\n" , substring(s, "ck!Who's"));
     return 0;
 }
 
 int substring(const char *s1, const char* s2)
 {
-    // This function is incomplete. Student must remove the next line and
-    // complete this function...
-    printf ("\nFunction substring is incmplete and doesn't work.\n");
-    
+  if (strlen(s1) < strlen(s2))
+  {
     return 0;
+  }
+  int i = 0, j, match = 0;
+  
+  
+  while (s1[i] != '\0')
+  {
+    j = 0;
+    
+    if (s1[i] == s2[j]) // When true, assume match = 1 unless proven wrong
+    {
+      int marker = i;
+      match = 1;
+      
+      while((s2[j] != '\0')) // Verifies whether match = 1 is true
+      {
+        if (s1[marker] != s2[j]) // Match = 1 was wrong
+        {
+          match = 0;
+          break;
+        }
+        marker++;
+        j++;
+      }
+    }
+    
+    if (match == 1) // One match is enough
+      break;
+    i++;
+  }
+  return match;
 }
 
 void select_negatives(const int *source, int n_source,
                       int* negatives_only, int* number_of_negatives)
 {
-    // This function is incomplete. Student must remove the next line and
-    // complete this function...
-    printf ("\nFunction select_negatives is incmplete and doesn't work.\n");
-    
-    int i;
-    *number_of_negatives = 0;
-    
-    return;
+
+  int i = 0, j = 0;
+  *number_of_negatives = 0;
+  
+  while (i < n_source)
+  {
+    if (source[i] < 0)
+    {
+      (*number_of_negatives)++;
+      negatives_only[j] = source[i];
+      j++;
+    }
+    i++;
+  }
+  
+  
+  return;
 }
 

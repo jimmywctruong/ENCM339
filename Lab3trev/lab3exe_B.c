@@ -12,8 +12,6 @@ int main(void)
 {
     const char* str1 = "Banana Bread";
     char str2[7];
-    for(int i = 0; i < 13; i++)
-      printf("%c ", str1[i]);
     unsigned long int n1 = strlen(str1);
     int n2 = sizeof(str1);
     
@@ -31,8 +29,6 @@ int foo(const char *s1, int ch, char* s2)
         bar(s1, s2, ch, i, &j );
         
     }
-    for(int i = 0; i < 19; i++)
-      printf("%d ", s2[i]);
     // point two
     return 0;
 }
