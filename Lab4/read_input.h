@@ -86,5 +86,10 @@ double convert_to_double(const char *digits);
  *           characters.
  */
 
+double decimal_place (int place);
+/* REQUIRES: place be a non-negative number
+ * PROMISES: Returns a number with a 1 in the decimal place.
+ *         e.g. place = 0, returns 1, place = 2, returns 0.01
+ */
 
 #endif
