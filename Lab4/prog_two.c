@@ -14,15 +14,14 @@ int main()
     input_code = read_real(digits, SIZE, &n_double);
 
     if (input_code == 1)
-      printf("Your double value is: %f\n", n_double);
+      printf("Your double value is: \t\t\t %15.8f\n\n", n_double);
     else if (input_code == 0)
-      printf("%s is an invalid double.\n", digits);
+      printf("%s is an invalid double.\n\n", digits);
     else if (input_code == -1)
     {
       printf("\nGood Bye.\n");
       break;
     }
-
   }
   return 0;
 }
