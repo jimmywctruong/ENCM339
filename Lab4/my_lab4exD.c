@@ -153,9 +153,16 @@ int main(void)
     return 0;
 }
 
+/****************************************************
+ * BEGIN
+ * MY CODE
+ ****************************************************/
+
+
 int my_strlen (const char *s)
 {
   const char *end = s;
+  // set end to '\0'
   while (*end)
   {
     end++;
@@ -183,7 +190,8 @@ void my_strncat (char *dest, const char *source, int n)
 int my_strcmp (const char* str1, const char* str2)
 {
   int total1 = 0, total2 = 0;
-  
+
+  // sum str1 and str2 to subtract
   while(*str1)
   {
     total1 += *str1++;

@@ -13,7 +13,6 @@ int read_real(char* digits, int n, double* num)
 
   if (is_valid_double(&digits[i]))
   {
-
     if (digits[0] == '-')
       *num = -convert_to_double(&digits[i]);
     else
@@ -30,7 +29,7 @@ int is_valid_double(const char* digits)
 {
   int decimal = 0;
   
-  // Invalid double loop
+  // Invalid checking loop
   for (int i = 0; digits[i] != '\0'; i++)
   {
     // Catches and allows first decimal to pass
@@ -43,13 +42,14 @@ int is_valid_double(const char* digits)
         return 0;
       }
     }
-    // Fails for non-digits
+    // Finds non-digits
     if (digits[i] < '0' || digits[i] > '9')
       return 0;
   }
 
   return 1;
 }
+
 double convert_to_double (const char* digits)
 {
   double num = 0;
@@ -62,7 +62,7 @@ double convert_to_double (const char* digits)
     if (digits[i] == '.')
     {
       decimal = 1;
-      i++;
+      i++; // '.' is processed, move to the next number
     }
 
     if (decimal == 1)

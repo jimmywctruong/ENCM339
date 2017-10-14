@@ -8,6 +8,7 @@ int main()
   int input_code = 0;
   double n_double;
   char digits[SIZE];
+  
   while(1)
   {
     printf("Enter a double or press Ctrl-D to quit: ");
