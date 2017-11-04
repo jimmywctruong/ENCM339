@@ -1,4 +1,5 @@
 #include "read_input.h"
+#include <math.h>
 
 
 int read_real(char* digits, int n, double* num)
@@ -53,8 +54,8 @@ int is_valid_double(const char* digits)
 double convert_to_double (const char* digits)
 {
   double num = 0;
+  double fraction = 0;
   int decimal = 0;
-  int place = 1;
 
   for (int i = 0; digits[i] != '\0'; i++)
   {
@@ -65,29 +66,16 @@ double convert_to_double (const char* digits)
       i++; // '.' is processed, move to the next number
     }
 
-    if (decimal == 1)
+    if (decimal > 0)
     {
-      // Starts adding the shifted decimal portion
-      num += (digits[i] - '0')*decimal_place(place);
-      place++;
+      // Reads the fraction component
+      fraction = fraction*10 + (digits[i] - '0');
+      decimal++;
     } 
-    else // Shifts and adds the integer portion
+    else // Reads the integer component
       num = num*10 + (digits[i] - '0');
   }
-
-  return num;
+  // outputs the integer and fractional component
+  return num + fraction/pow(10, decimal);
 }
 
-double decimal_place (int place)
-{
-  // Provides the appropriate decimal multiplier. 
-  // Ex. decimal_place(2) == 0.01, 0.05 = 5 * 0.01
-  double value = 1;
-  while (place > 0)
-  {
-    value /= 10;
-    place--;
-  }
-
-  return value;
-}
