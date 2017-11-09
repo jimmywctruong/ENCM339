@@ -1,13 +1,7 @@
-#include <assert.h>
+#include <cassert>
 #include "lab7Clock.h"
 
 // PUBLIC FUNCTIONS:
-#if 0
-Clock::Clock()
-: hour(0), minute(0), second(0)
-{
-}
-#endif
 Clock::Clock(int sec)
 {
   if (sec < 0)
@@ -36,21 +30,6 @@ Clock::Clock(int hr, int min, int sec)
   }
 }
 
-#if 0
-int Clock::get_second() const
-{
-  return second;
-}
-int Clock::get_minute() const
-{
-  return minute;
-}
-int Clock::get_hour() const
-{
-  return hour;
-}
-#endif
-
 void Clock::set_second(int sec)
 {
   if(sec < 0 || sec > 59)
@@ -69,16 +48,6 @@ void Clock::set_hour(int hr)
     return;
   hour = hr;
 }
-#if 0
-void Clock::increment()
-{
-  sec_to_hms(hms_to_sec() + 1);
-}
-void Clock::decrement()
-{
-  sec_to_hms(hms_to_sec() - 1);
-}
-#endif
 
 void Clock::add_seconds(int sec)
 {
@@ -87,12 +56,7 @@ void Clock::add_seconds(int sec)
 }
 
 // PRIVATE FUNCTIONS
-#if 0
-int Clock::hms_to_sec() const
-{
-  return hour*3600 + minute*60 + second;
-}
-#endif
+
 void Clock::sec_to_hms(int inputSec)
 {
   while(inputSec < 0) // make inputSec positive

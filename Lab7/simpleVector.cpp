@@ -58,19 +58,23 @@ const TYPE& SimpleVector::at(int i)const {
 void SimpleVector::push_back(TYPE val) {
     
 //  THIS FUNCTION MUST BE COMPLETED BY THE STUDENTS
-  if(sizeM < capacityM)
+
+  // Checking if there is space for val
+  if(sizeM < capacityM) 
   {
     storageM[sizeM] = val;
     sizeM++;
     return;
   }
-  else if (((sizeM || capacityM) == 0 ) && (storageM == NULL) )
-  {
+  // Checking if SimpleVector is empty
+  else if (((sizeM || capacityM) == 0 ) && (storageM == 0) )
+  { 
     capacityM = 2;
     storageM = new TYPE[capacityM];
     storageM[sizeM] = val; // sizeM = 0;
     sizeM++;
   }
+  // Checking if SimpleVector has no more room
   else if (sizeM == capacityM)
   {
     int i = 0;
@@ -92,31 +96,31 @@ void SimpleVector::push_back(TYPE val) {
 
 SimpleVector::SimpleVector(const SimpleVector& source) {
 //  THIS FUNCTION MUST BE COMPLETED BY THE STUDENTS
-  this -> sizeM = 0;
-  this -> capacityM = source.capacityM;
-  this -> storageM = new TYPE[source.capacityM];
+  sizeM = 0;
+  capacityM = source.capacityM;
+  storageM = new TYPE[source.capacityM];
 
-  while(this -> sizeM < source.sizeM)
+  while(sizeM < source.sizeM)
   {
-    this -> storageM[sizeM] = source.storageM[sizeM];
-    (this -> sizeM)++;
+    storageM[sizeM] = source.storageM[sizeM];
+    sizeM++;
   }
 
 }
 
 SimpleVector& SimpleVector::operator= (const SimpleVector& rhs ){
 //  THIS FUNCTION MUST BE COMPLETED BY THE STUDENTS    
-  if (this != &rhs)
+  if (this != &rhs) // self-copy protection
   {
-    delete [] this -> storageM;
-    this -> sizeM = 0;
-    this -> capacityM = rhs.capacityM;
-    this -> storageM = new TYPE[rhs.capacityM];
+    delete [] storageM;
+    sizeM = 0;
+    capacityM = rhs.capacityM;
+    storageM = new TYPE[rhs.capacityM];
 
-    while(this -> sizeM < rhs.sizeM)
+    while(sizeM < rhs.sizeM)
     {
-      this -> storageM[sizeM] = rhs.storageM[sizeM];
-      (this -> sizeM)++;
+      storageM[sizeM] = rhs.storageM[sizeM];
+      sizeM++;
     }
 
   }

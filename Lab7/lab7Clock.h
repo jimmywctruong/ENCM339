@@ -9,11 +9,8 @@ public:
   Clock(int hr, int min, int sec);
 
   int get_second() const {return second;}
-  // PROMISES: Returns the current clock second
   int get_minute() const {return minute;}
-  // PROMISES: Returns the current clock minute
   int get_hour() const {return hour;}
-  // PROMISES: Returns the current clock hour
 
   void set_second(int sec);
   // PROMISES: if sec < 0 || sec > 59, does nothing
@@ -41,7 +38,7 @@ private:
   // PROMISES: Returns the current internal clock time in seconds
   void sec_to_hms(int inputSec);
   // PROMISES: Converts the inputSec to hours, minutes, and seconds
-  // and replaces the current time to the converted time
+  // and replaces the current time with the converted time
 };
 
 #endif
